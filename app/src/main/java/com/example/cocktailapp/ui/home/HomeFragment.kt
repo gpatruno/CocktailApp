@@ -42,7 +42,6 @@ class HomeFragment : Fragment() {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
                     binding.CocktailRecyclerView.adapter = RecyclerAdapter(response.body().cocktails.toTypedArray())
-                    println("cocktail number" + response.body().cocktails.size)
                 }
             }
             override fun onFailure(call: Call<CocktailList>, t: Throwable) {
