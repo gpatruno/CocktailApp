@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewCocktail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -17,7 +18,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp" >
+            android:padding="10dp" >
 
             <ImageView
                 android:layout_width="100dp"
@@ -28,14 +29,14 @@
                 android:layout_marginEnd="16dp"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cocktailTitle"
                 android:layout_toEndOf="@+id/cocktailImg"
                 android:layout_alignParentTop="true"
-                android:text="@string/app_name"
                 android:textSize="30sp" />
 
+            <!--
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,18 +68,58 @@
                     android:checked="true"
                     android:text="@string/text_choice_1"/>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_4"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/text_choice_1"/>
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip_4"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/text_choice_1"/>
 
-            </com.google.android.material.chip.ChipGroup>
+        </com.google.android.material.chip.ChipGroup>
+        -->
 
+        <com.google.android.material.chip.Chip
+            android:id="@+id/glassTitle"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:textSize="20sp"
+            android:layout_below="@+id/cocktailImg"/>
 
+            <com.google.android.material.chip.Chip
+                android:id="@+id/drinkCategory"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:textSize="20sp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_below="@+id/glassTitle"/>
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/drinkIBA"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_below="@+id/drinkCategory"/>
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:id="@+id/ingredientTitle"
+        android:text="@string/liste_des_ingredients"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewCocktail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
