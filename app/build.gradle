@@ -37,6 +37,10 @@ android {
 }
 
 dependencies {
+    implementation("com.louiscad.splitties:splitties-toast:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-alertdialog:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-activities:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-alertdialog-material:$splitties_version")
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
     implementation 'com.squareup.retrofit2:retrofit:2.2.0'
