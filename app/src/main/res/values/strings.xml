@@ -5,6 +5,8 @@
     <string name="title_header_dashboard">Bienvenue</string>
     <string name="title_notifications">Notifications</string>
     <string name="text_choice_1">IBA</string>
+    <string name="liste_des_ingredients">Liste des ingredients</string>
+    <string name="glass_type"> Verre   </string>
     <string name="username">Ynov</string>
     <string name="dashboard_cocktail">Cocktail</string>
     <string name="cocktail">Cocktail</string>
