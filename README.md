@@ -16,6 +16,9 @@ Application Mobile qui permets de référencer tous les Cocktails avec les ingr�
 * Voir les [Open issues](https://github.com/gpatruno/CocktailApp/issues)
 
 ## Les Vues
+![alt text](app/assets/view-cocktails.png)
+![alt text](app/assets/view-detail.png)
 
+![alt text](app/assets/view-ingredients.png)
 
 By G.PATRUNO & B.PEN

@@ -41,8 +41,6 @@ class DetailFragment : Fragment(){
                 if (response.code() == 200) {
                     val cocktails = response.body().cocktails
                     if (cocktails.isNotEmpty() && cocktails.size == 1) {
-                        Log.i(DetailFragment::class.simpleName, cocktails[0].name.toString())
-                        //val hashMap: MutableMap<String, String> = Gson().fromJson(cocktails[0], HashMap::class.java)
                         binding.cocktailTitle.text = cocktails[0].name
                         binding.glassTitle.text = cocktails[0].glass
                         binding.drinkCategory.text = cocktails[0].category
@@ -50,7 +48,7 @@ class DetailFragment : Fragment(){
                         binding.drinkIBA.text = cocktails[0].IBA
                         Picasso.get().load(cocktails[0].img).fit().into(binding.cocktailImg)
                         val list: MutableList<String> = mockData(cocktails[0])
-                        //val arrayTags = cocktails[0].tags.toString().split(",")
+                        //binding.lstIngredients.adapter = ItemIngAdapter(list)
                     }
                 }
             }
@@ -79,25 +77,21 @@ class DetailFragment : Fragment(){
         if (!item.ingredient5.isNullOrEmpty()) {
             list.add(item.ingredient5.toString())
         } else return list
-        if (!item.ingredient2.isNullOrEmpty()) {
-            list.add(item.ingredient2.toString())
+        if (!item.ingredient6.isNullOrEmpty()) {
+            list.add(item.ingredient6.toString())
         } else return list
-        if (!item.ingredient2.isNullOrEmpty()) {
-            list.add(item.ingredient2.toString())
+        if (!item.ingredient7.isNullOrEmpty()) {
+            list.add(item.ingredient7.toString())
         } else return list
-        if (!item.ingredient2.isNullOrEmpty()) {
-            list.add(item.ingredient2.toString())
+        if (!item.ingredient8.isNullOrEmpty()) {
+            list.add(item.ingredient8.toString())
         } else return list
-        if (!item.ingredient2.isNullOrEmpty()) {
-            list.add(item.ingredient2.toString())
+        if (!item.ingredient9.isNullOrEmpty()) {
+            list.add(item.ingredient9.toString())
         } else return list
-        if (!item.ingredient2.isNullOrEmpty()) {
-            list.add(item.ingredient2.toString())
-        } else return list
-
-
-
-        Log.i(DetailFragment::class.simpleName, list[1])
+        if (!item.ingredient10.isNullOrEmpty()) {
+            list.add(item.ingredient10.toString())
+        }
 
         return list
     }

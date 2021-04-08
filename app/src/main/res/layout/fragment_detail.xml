@@ -35,50 +35,6 @@
                 app:layout_constraintLeft_toRightOf="@+id/cocktailImg"
                 app:layout_constraintTop_toTopOf="parent"/>
 
-            <!--
-            <com.google.android.material.chip.ChipGroup
-                android:layout_width="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/cocktailImg"
-                android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/cocktailTitle"
-                android:layout_alignBottom="@id/cocktailImg"
-                >
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_1"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/text_choice_1"/>
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_2"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/text_choice_1"/>
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chip_3"
-                    style="@style/Widget.MaterialComponents.Chip.Choice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/text_choice_1"/>
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/chip_4"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/text_choice_1"/>
-
-        </com.google.android.material.chip.ChipGroup>
-        -->
-
         <com.google.android.material.chip.Chip
             android:id="@+id/glassTitle"
             style="@style/Widget.MaterialComponents.Chip.Choice"
@@ -121,5 +77,10 @@
         android:text="@string/liste_des_ingredients"
         android:textSize="25sp"
         app:layout_constraintTop_toBottomOf="@+id/cardViewCocktail" />
+
+    <ListView
+        android:id="@+id/lstIngredients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
