@@ -1,9 +1,10 @@
 ![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
+[![Platform](https://img.shields.io/badge/OS-Android-Green.svg)](https://shields.io/)
 
 
 # CocktailApp
 
-![alt text](https://github.com/gpatruno/CocktailApp/app/src/main/res/mipmap-hdpi/ic_launcher.png)
+![alt text](app/src/main/res/mipmap-xxhdpi/ic_launcher.png)
 
 ## Informations utiles
 * Lien [API publique](https://www.thecocktaildb.com/api.php)
