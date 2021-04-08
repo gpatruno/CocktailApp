@@ -2,8 +2,16 @@
     <string name="app_name">CocktailApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
+    <string name="title_header_dashboard">Bienvenue</string>
     <string name="title_notifications">Notifications</string>
     <string name="text_choice_1">IBA</string>
     <string name="liste_des_ingredients">Liste des ingredients</string>
     <string name="glass_type"> Verre   </string>
+    <string name="username">Ynov</string>
+    <string name="dashboard_cocktail">Cocktail</string>
+    <string name="cocktail">Cocktail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard_ingredients">Ingredients</string>
+    <string name="title_header_ingredients">Ingredients</string>
 </resources>

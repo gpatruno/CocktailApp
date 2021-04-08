@@ -38,6 +38,10 @@ android {
 }
 
 dependencies {
+    implementation("com.louiscad.splitties:splitties-toast:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-alertdialog:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-activities:$splitties_version")
+    implementation("com.louiscad.splitties:splitties-alertdialog-material:$splitties_version")
     def room_version = "2.2.6"
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation "androidx.room:room-runtime:$room_version"
@@ -59,6 +63,8 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
     testImplementation 'junit:junit:4.13.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
