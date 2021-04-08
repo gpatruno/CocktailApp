@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.room.Room
 import com.example.cocktailapp.*
 import com.example.cocktailapp.databinding.FragmentDetailBinding
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
