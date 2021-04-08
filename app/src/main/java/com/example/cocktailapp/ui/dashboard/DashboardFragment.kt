@@ -10,10 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.cocktailapp.CocktailList
-import com.example.cocktailapp.CoktailService
+import com.example.cocktailapp.CocktailListService
 import com.example.cocktailapp.R
 import com.example.cocktailapp.databinding.FragmentDashboardBinding
-import com.example.cocktailapp.ui.ingredients.IngredientsFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,7 +55,7 @@ class DashboardFragment : Fragment() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-        val service = retrofit.create(CoktailService::class.java)
+        val service = retrofit.create(CocktailListService::class.java)
         val call = service.getCocktailData()
 
         call.enqueue(object : Callback<CocktailList> {
