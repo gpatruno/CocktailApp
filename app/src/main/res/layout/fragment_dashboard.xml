@@ -77,11 +77,15 @@
                     android:src="@drawable/ic_dashboard_cocktail_icon"/>
 
                 <TextView
+                    android:id="@+id/cocktailCard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_cocktail"
+                    android:layout_marginTop="20px"
                     android:textSize="16sp"
                     android:textColor="@color/black"/>
+
+
 
 
 
@@ -91,6 +95,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/ingredientsCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
@@ -112,13 +117,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_dashboard_cocktail_icon"/>
+                    android:src="@drawable/ic_ingredient"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/dashboard_cocktail"
+                    android:text="@string/dashboard_ingredients"
                     android:textSize="16sp"
+                    android:layout_marginTop="20px"
                     android:textColor="@color/black"/>
 
 
