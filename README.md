@@ -19,7 +19,7 @@ Application Mobile qui permets de référencer tous les Cocktails avec les ingr�
 ![alt text](app/assets/view-cocktails.png)
 ![alt text](app/assets/view-detail.png)
 
-##Dashboard
+## Dashboard
 ![alt text](app/assets/view-dashboard.png)
 
 ## Ingredients view
