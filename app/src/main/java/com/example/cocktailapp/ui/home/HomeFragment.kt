@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.cocktailapp.AppDatabase
 import com.example.cocktailapp.data.CocktailList
 import com.example.cocktailapp.CocktailAdapter
+import com.example.cocktailapp.data.CocktailData
 import com.example.cocktailapp.data.CocktailListService
 import com.example.cocktailapp.databinding.FragmentHomeBinding
 import retrofit2.Call
@@ -30,6 +32,8 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.CocktailRecyclerView.layoutManager = LinearLayoutManager(binding.root.context)
 
+        val database = AppDatabase.getRecipeDatabase(this.requireContext())
+
         val retrofit = Retrofit.Builder()
             .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -42,6 +46,16 @@ class HomeFragment : Fragment() {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
                     binding.CocktailRecyclerView.adapter = CocktailAdapter(response.body().cocktails.toTypedArray())
+                    //val cocktailList = response.body()
+                    //val items = ArrayList<CocktailData>()
+                    //Thread {
+                     //   for (cocktail in cocktailList.cocktails) {
+                            //var item = CocktailData(cocktail.id!!,cocktail.name, cocktail.instruction, cocktail.glass, cocktail.tags, cocktail.img)
+                            //items.add(item)
+                     //   }
+                        //database.clearAllTables()
+                        //database.cocktailDao().insertAll(items)
+                   // }.start()
                 }
             }
             override fun onFailure(call: Call<CocktailList>, t: Throwable) {

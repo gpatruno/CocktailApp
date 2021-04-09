@@ -5,10 +5,11 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class CocktailData(
-    @PrimaryKey val uid: Int,
+    @PrimaryKey(autoGenerate = true) var uid: Int? = null,
+    var id: Int?,
     var name: String?,
     val instruction: String?,
     val glass: String?,
     val tags: String?,
-    val imageUrl: String?
+    val img: String?
 )

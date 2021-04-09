@@ -35,9 +35,6 @@ class DetailFragment : Fragment(){
 
         val cocktailId = arguments?.getInt("cocktail_id").toString()
 
-        val database = AppDatabase.getRecipeDatabase(this.requireContext())
-        val cocktailDao = database.cocktailDao()
-
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Features"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Instruction"))
         binding.viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(binding.tabLayout))

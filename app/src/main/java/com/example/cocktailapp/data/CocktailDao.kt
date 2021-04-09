@@ -10,15 +10,15 @@ interface CocktailDao {
     @Query("SELECT * FROM CocktailData")
     fun getAll(): List<CocktailData>
 
-    @Query("SELECT * FROM CocktailData WHERE uid IN (:userIds)")
+    @Query("SELECT * FROM CocktailData WHERE id IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<CocktailData>
 
     @Query("SELECT * FROM CocktailData WHERE name LIKE :name")
     fun findByName(name: String): CocktailData
 
     @Insert
-    fun insertAll(vararg cocktail: CocktailData)
+    fun insertAll(vararg cocktails: CocktailData)
 
     @Delete
-    fun delete(user: CocktailData)
+    fun delete(cocktail: CocktailData)
 }
