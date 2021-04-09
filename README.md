@@ -22,7 +22,6 @@ Application Mobile qui permets de référencer tous les Cocktails avec les ingr�
 ![alt text](app/assets/view-ingredients.png)
 
 ![alt text](app/assets/ingredient_detail_page_alcohol.png)
-
 ![alt text](app/assets/ingredient_detail_page_non_alcohol.png)
 
 By G.PATRUNO & B.PEN
