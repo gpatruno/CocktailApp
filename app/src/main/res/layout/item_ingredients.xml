@@ -21,9 +21,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/item_image_ingredients"
-            android:layout_centerHorizontal="true"
-            android:layout_marginEnd="16dp"/>
+            android:id="@+id/item_image_ingredients" />
 
         <TextView
             android:layout_width="wrap_content"
