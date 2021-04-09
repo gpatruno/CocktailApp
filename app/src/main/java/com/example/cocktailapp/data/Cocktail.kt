@@ -1,4 +1,4 @@
-package com.example.cocktailapp
+package com.example.cocktailapp.data
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
@@ -21,7 +21,7 @@ data class Cocktail(
     var id: Int? = null,
 
     @SerializedName("strInstructions")
-    var instructions: String? = null,
+    var instruction: String? = null,
 
     @SerializedName("strCategory")
     var category: String? = null,

@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktailapp.*
+import com.example.cocktailapp.data.IngredientsList
+import com.example.cocktailapp.data.IngredientsService
 import com.example.cocktailapp.databinding.FragmentIngredientsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,14 +34,13 @@ class IngredientsFragment : Fragment() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-
         val service = retrofit.create(IngredientsService::class.java)
         val call = service.getIngredientsData()
 
         call.enqueue(object : Callback<IngredientsList> {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
-                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients.toTypedArray())
+                    binding.IngredientRecyclerView.adapter = IngredientsAdapter(response.body().ingredients.toTypedArray())
                 }
             }
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {

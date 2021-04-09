@@ -9,11 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.cocktailapp.CocktailList
-import com.example.cocktailapp.CoktailService
+import com.example.cocktailapp.data.CocktailList
+import com.example.cocktailapp.data.CocktailListService
 import com.example.cocktailapp.R
 import com.example.cocktailapp.databinding.FragmentDashboardBinding
-import com.example.cocktailapp.ui.ingredients.IngredientsFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,17 +27,15 @@ class DashboardFragment : Fragment() {
     private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: FragmentDashboardBinding
     private var cocktailNumber = 0
-
     var fragment: Fragment? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentDashboardBinding.inflate(layoutInflater)
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        dashboardViewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
         val textView: String = getString(R.string.title_dashboard)
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView
@@ -47,16 +44,13 @@ class DashboardFragment : Fragment() {
         return binding.root
     }
 
-
-
-
     fun getData() {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-        val service = retrofit.create(CoktailService::class.java)
+        val service = retrofit.create(CocktailListService::class.java)
         val call = service.getCocktailData()
 
         call.enqueue(object : Callback<CocktailList> {
