@@ -54,7 +54,7 @@
     <fragment
         android:id="@+id/ingredients_fragment"
         android:name="com.example.cocktailapp.ui.ingredients.IngredientsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_ingredients"
         tools:layout="@layout/fragment_ingredients" >
         <action
             android:id="@+id/action_ingredients_fragment_to_navigation_ingredients_detail"

@@ -2,10 +2,9 @@ package com.example.cocktailapp.ui.ingredients
 
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cocktailapp.*
 import com.example.cocktailapp.databinding.FragmentIngredientsBinding
 import retrofit2.Call
@@ -18,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class IngredientsFragment : Fragment() {
 
     private lateinit var binding: FragmentIngredientsBinding
+    private lateinit var test : ArrayList<Ingredients>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -38,7 +38,8 @@ class IngredientsFragment : Fragment() {
         call.enqueue(object : Callback<IngredientsList> {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
-                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients.toTypedArray())
+                    test = response.body().ingredients as ArrayList<Ingredients>
+                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients as ArrayList<Ingredients>)
                 }
             }
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {
@@ -46,15 +47,26 @@ class IngredientsFragment : Fragment() {
             }
         })
 
+
         return binding.root
     }
 
 
-
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.ingredientSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                RecyclerAdapterIngredients(test).filter.filter(newText)
+                return false
+            }
+
+        })
 
     }
 
