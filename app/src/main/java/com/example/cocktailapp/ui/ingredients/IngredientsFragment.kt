@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class IngredientsFragment : Fragment() {
 
     private lateinit var binding: FragmentIngredientsBinding
-    private lateinit var test : ArrayList<Ingredients>
+    private lateinit var test : ArrayList<Ingredient>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -38,8 +38,8 @@ class IngredientsFragment : Fragment() {
         call.enqueue(object : Callback<IngredientsList> {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
-                    test = response.body().ingredients as ArrayList<Ingredients>
-                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients as ArrayList<Ingredients>)
+                    test = response.body().ingredients as ArrayList<Ingredient>
+                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients as ArrayList<Ingredient>)
                 }
             }
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {

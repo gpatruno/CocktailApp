@@ -16,8 +16,8 @@ import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecyclerAdapterIngredients(var items: ArrayList<Ingredients>) : RecyclerView.Adapter<RecyclerAdapterIngredients.ViewHolder>(), Filterable {
-    var ingredientsFilterList = ArrayList<Ingredients>()
+class RecyclerAdapterIngredients(var items: ArrayList<Ingredient>) : RecyclerView.Adapter<RecyclerAdapterIngredients.ViewHolder>(), Filterable {
+    var ingredientsFilterList = ArrayList<Ingredient>()
 
     init {
         ingredientsFilterList = items
@@ -25,7 +25,7 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredients>) : RecyclerVi
     inner class ViewHolder(private val binding : ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
 
 
-        fun bindIngredientsItem(item: Ingredients){
+        fun bindIngredientsItem(item: Ingredient){
             binding.cardViewIngredients.setOnClickListener {
                 val navController = Navigation.findNavController(binding.root)
                 val bundle = bundleOf("ingredient_name" to item.name)
@@ -62,7 +62,7 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredients>) : RecyclerVi
                 if (charSearch.isEmpty()) {
                     ingredientsFilterList = items
                 } else {
-                    val resultList = ArrayList<Ingredients>()
+                    val resultList = ArrayList<Ingredient>()
                     for(row in items) {
                         println("ROW"+row.name.toString())
                         println("CHAR"+charSearch.toLowerCase())
@@ -80,7 +80,7 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredients>) : RecyclerVi
             }
 
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
-                ingredientsFilterList = results?.values as ArrayList<Ingredients>
+                ingredientsFilterList = results?.values as ArrayList<Ingredient>
                 notifyDataSetChanged()
             }
 

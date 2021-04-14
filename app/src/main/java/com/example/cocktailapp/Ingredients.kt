@@ -8,10 +8,10 @@ import retrofit2.http.Query
 
 data class IngredientsList(
     @SerializedName("drinks")
-    val ingredients: List<Ingredients>
+    val ingredients: List<Ingredient>
 )
 
-data class Ingredients(
+data class Ingredient(
     @SerializedName("strIngredient1")
     var name: String? = null,
     var img: String? = null,
