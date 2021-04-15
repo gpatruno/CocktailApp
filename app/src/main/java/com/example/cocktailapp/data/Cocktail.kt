@@ -1,4 +1,4 @@
-package com.example.cocktailapp
+package com.example.cocktailapp.data
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call

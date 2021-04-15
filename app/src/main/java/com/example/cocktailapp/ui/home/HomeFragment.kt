@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.cocktailapp.CocktailList
+import com.example.cocktailapp.data.CocktailList
 import com.example.cocktailapp.CocktailAdapter
-import com.example.cocktailapp.CocktailListService
+import com.example.cocktailapp.data.CocktailListService
 import com.example.cocktailapp.databinding.FragmentHomeBinding
 import retrofit2.Call
 import retrofit2.Callback

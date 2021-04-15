@@ -1,12 +1,13 @@
 package com.example.cocktailapp.ui.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cocktailapp.*
+import com.example.cocktailapp.data.Cocktail
+import com.example.cocktailapp.data.CocktailInfoService
+import com.example.cocktailapp.data.CocktailList
 import com.example.cocktailapp.databinding.FragmentDetailBinding
 import com.squareup.picasso.Picasso
 import retrofit2.Call

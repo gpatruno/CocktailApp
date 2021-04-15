@@ -1,5 +1,6 @@
 package com.example.cocktailapp.ui.ingredients
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.SearchView
@@ -50,6 +51,7 @@ class IngredientsFragment : Fragment() {
 
         return binding.root
     }
+
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cocktailapp.data.Cocktail
 import com.example.cocktailapp.databinding.ItemCocktailBinding
 import com.squareup.picasso.Picasso
 

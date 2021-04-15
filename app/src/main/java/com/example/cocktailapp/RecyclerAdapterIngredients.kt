@@ -31,8 +31,6 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredient>) : RecyclerVie
                 val bundle = bundleOf("ingredient_name" to item.name)
                 navController.navigate(R.id.navigation_ingredients_detail, bundle)
             }
-
-
                 val imgView = binding.itemImageIngredients
                 binding.itemTitleIngredients.text = item.name
                 Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/"+item.name+"-Medium.png").fit().into(imgView)
@@ -47,7 +45,7 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredient>) : RecyclerVie
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bindIngredientsItem(ingredientsFilterList[position])
+        viewHolder.bindIngredientsItem(items[position])
     }
 
     override fun getItemCount(): Int {

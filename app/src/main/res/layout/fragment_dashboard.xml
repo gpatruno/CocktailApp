@@ -10,7 +10,6 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layoutHeader"
         android:layout_marginTop="30dp"
         android:layout_margin="20dp"
         android:columnCount="2"
