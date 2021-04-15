@@ -1,18 +1,20 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
     ext.retrofit_version = '2.3.0'
+    version "1.4.32"
     buildFeatures {
         viewBinding true
     }
 
     defaultConfig {
-        applicationId "com.example.cocktailapp"
+        applicationId 'com.gpatruno.cocktailapp'
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
@@ -42,14 +44,13 @@ dependencies {
     implementation("com.louiscad.splitties:splitties-alertdialog:$splitties_version")
     implementation("com.louiscad.splitties:splitties-activities:$splitties_version")
     implementation("com.louiscad.splitties:splitties-alertdialog-material:$splitties_version")
-    def room_version = "2.2.6"
     implementation 'androidx.multidex:multidex:2.0.1'
-    implementation "androidx.room:room-runtime:$room_version"
-    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation 'androidx.room:room-runtime:2.2.6'
+    kapt 'androidx.room:room-compiler:2.2.6'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
     implementation 'com.squareup.retrofit2:retrofit:2.2.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'

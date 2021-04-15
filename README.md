@@ -16,7 +16,12 @@ Application Mobile qui permets de référencer tous les Cocktails avec les ingr�
 * Voir les [Open issues](https://github.com/gpatruno/CocktailApp/issues)
 
 ## Les Vues
-![alt text](app/assets/view-cocktails.png)
+- Vue Principale
+
+![alt text](app/assets/view-cocktail.png)
+
+- Vue Cocktail detail
+
 ![alt text](app/assets/view-detail.png)
 
 ## Dashboard
@@ -29,6 +34,9 @@ Application Mobile qui permets de référencer tous les Cocktails avec les ingr�
 ![alt text](app/assets/ingredient_detail_page_alcohol.png)
 ![alt text](app/assets/ingredient_detail_page_non_alcohol.png)
 
+## Wiki 
 
+- Documentation implémentation Room
+https://developer.android.com/training/data-storage/room
 
 By G.PATRUNO & B.PEN

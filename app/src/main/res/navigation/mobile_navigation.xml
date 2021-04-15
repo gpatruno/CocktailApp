@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.cocktailapp.ui.home.HomeFragment"
+        android:name="com.gpatruno.cocktailapp.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.cocktailapp.ui.dashboard.DashboardFragment"
+        android:name="com.gpatruno.cocktailapp.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" >
         <action
@@ -27,13 +27,13 @@
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.cocktailapp.ui.notifications.NotificationsFragment"
+        android:name="com.gpatruno.cocktailapp.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/detail_cocktail"
-        android:name="com.example.cocktailapp.ui.detail.DetailFragment"
+        android:name="com.gpatruno.cocktailapp.ui.detail.DetailFragment"
         android:label="Cocktail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/navigation_ingredients_detail"
-        android:name="com.example.cocktailapp.ui.ingredients.IngredientDetailFragment"
+        android:name="com.gpatruno.cocktailapp.data.ui.ingredients.IngredientDetailFragment"
         android:label="@string/title_ingredient_detail"
         tools:layout="@layout/fragment_ingredient_detail" >
         <argument
@@ -53,7 +53,7 @@
 
     <fragment
         android:id="@+id/ingredients_fragment"
-        android:name="com.example.cocktailapp.ui.ingredients.IngredientsFragment"
+        android:name="com.gpatruno.cocktailapp.ui.ingredients.IngredientsFragment"
         android:label="@string/title_ingredients"
         tools:layout="@layout/fragment_ingredients" >
         <action
