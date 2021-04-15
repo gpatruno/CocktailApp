@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.example.cocktailapp"
+        applicationId 'com.gpatruno.cocktailapp'
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
