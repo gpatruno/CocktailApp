@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class IngredientsFragment : Fragment() {
 
     private lateinit var binding: FragmentIngredientsBinding
-    private lateinit var test : ArrayList<Ingredient>
+    private lateinit var test : Array<Ingredient>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -40,6 +40,7 @@ class IngredientsFragment : Fragment() {
         call.enqueue(object : Callback<IngredientsList> {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
+                    test = response.body().ingredients.toTypedArray()
                     binding.IngredientRecyclerView.adapter = IngredientsAdapter(response.body().ingredients.toTypedArray())
                 }
             }
@@ -59,11 +60,19 @@ class IngredientsFragment : Fragment() {
 
         binding.ingredientSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
+                if(binding.IngredientRecyclerView.adapter != null) {
+                    var ingredientAdapter = binding.IngredientRecyclerView.adapter as IngredientsAdapter
+                    ingredientAdapter.filter.filter(query)
+                }
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                //IngredientsAdapter(test).filter().filter(newText)
+                if(binding.IngredientRecyclerView.adapter != null) {
+                    var ingredientAdapter = binding.IngredientRecyclerView.adapter as IngredientsAdapter
+                    ingredientAdapter.filter.filter(newText)
+                }
                 return false
             }
 
