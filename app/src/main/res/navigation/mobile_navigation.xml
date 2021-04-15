@@ -43,7 +43,7 @@
 
     <fragment
         android:id="@+id/navigation_ingredients_detail"
-        android:name="com.gpatruno.cocktailapp.data.ui.ingredients.IngredientDetailFragment"
+        android:name="com.gpatruno.cocktailapp.ui.ingredients.IngredientDetailFragment"
         android:label="@string/title_ingredient_detail"
         tools:layout="@layout/fragment_ingredient_detail" >
         <argument

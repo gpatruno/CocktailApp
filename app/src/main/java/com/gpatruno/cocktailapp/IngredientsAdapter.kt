@@ -3,6 +3,8 @@ package com.gpatruno.cocktailapp
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.gpatruno.cocktailapp.data.Ingredient
 import com.gpatruno.cocktailapp.databinding.ItemIngredientsBinding
@@ -14,6 +16,9 @@ class IngredientsAdapter(private var items: Array<Ingredient>) : RecyclerView.Ad
         fun bindIngredientsItem(item: Ingredient){
             binding.cardViewIngredients.setOnClickListener {
                 Log.i(ViewHolder::class.simpleName, item.name.toString())
+                val navController = Navigation.findNavController(binding.root)
+                val bundle = bundleOf("ingredient_name" to item.name)
+                navController.navigate(R.id.navigation_ingredients_detail, bundle)
             }
 
             binding.itemTitleIngredient.text = item.name
