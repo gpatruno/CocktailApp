@@ -1,9 +1,8 @@
-package com.example.cocktailapp
+package com.example.cocktailapp.data
 
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 data class IngredientsList(
@@ -15,6 +14,7 @@ data class Ingredient(
     @SerializedName("strIngredient1")
     var name: String? = null,
     var img: String? = null,
+    var measure: String?= null,
 
     ) {}
 

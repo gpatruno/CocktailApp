@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.cocktailapp.*
+import com.example.cocktailapp.data.IngredientsBySearchList
+import com.example.cocktailapp.data.IngredientsSearchService
 import com.example.cocktailapp.databinding.FragmentIngredientDetailBinding
 import com.squareup.picasso.Picasso
 import retrofit2.Call

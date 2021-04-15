@@ -4,19 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import androidx.cardview.widget.CardView
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cocktailapp.databinding.ItemCocktailBinding
-import com.example.cocktailapp.databinding.ItemIngredientCocktailBinding
+import com.example.cocktailapp.data.Ingredient
 import com.example.cocktailapp.databinding.ItemIngredientsBinding
 import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecyclerAdapterIngredients(var items: ArrayList<Ingredient>) : RecyclerView.Adapter<RecyclerAdapterIngredients.ViewHolder>(), Filterable {
+class IngredientsAdapter(var items: ArrayList<Ingredient>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>(), Filterable {
     var ingredientsFilterList = ArrayList<Ingredient>()
 
     init {
@@ -41,7 +38,7 @@ class RecyclerAdapterIngredients(var items: ArrayList<Ingredient>) : RecyclerVie
 
     }
 
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerAdapterIngredients.ViewHolder {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): IngredientsAdapter.ViewHolder {
         val binding = ItemIngredientsBinding.inflate(LayoutInflater.from(viewGroup.context), viewGroup, false)
         return ViewHolder(binding)
     }

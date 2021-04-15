@@ -6,6 +6,9 @@ import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.cocktailapp.*
+import com.example.cocktailapp.data.Ingredient
+import com.example.cocktailapp.data.IngredientsList
+import com.example.cocktailapp.data.IngredientsService
 import com.example.cocktailapp.databinding.FragmentIngredientsBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -39,7 +42,7 @@ class IngredientsFragment : Fragment() {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
                     test = response.body().ingredients as ArrayList<Ingredient>
-                    binding.IngredientRecyclerView.adapter = RecyclerAdapterIngredients(response.body().ingredients as ArrayList<Ingredient>)
+                    binding.IngredientRecyclerView.adapter = IngredientsAdapter(response.body().ingredients as ArrayList<Ingredient>)
                 }
             }
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {
@@ -62,7 +65,7 @@ class IngredientsFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                RecyclerAdapterIngredients(test).filter.filter(newText)
+                IngredientsAdapter(test).filter.filter(newText)
                 return false
             }
 
