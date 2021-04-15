@@ -10,7 +10,6 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layoutHeader"
         android:layout_marginTop="30dp"
         android:layout_margin="20dp"
         android:columnCount="2"
@@ -60,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="fill"
-            android:layout_columnWeight="0"
+            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_row="0"
             android:layout_column="1"
@@ -69,8 +68,8 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -110,8 +109,8 @@
             app:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
                 android:orientation="vertical">
