@@ -11,12 +11,12 @@ data class IngredientsList(
 )
 
 data class Ingredient(
-        @SerializedName("strIngredient1")
-        var name: String? = null,
-        var img: String? = null,
-        var measure: String?= null,
+    @SerializedName("strIngredient1")
+    var name: String? = null,
+    var img: String? = null,
+    var measure: String?= null,
 
-        ) {}
+    ) {}
 
 data class IngredientsBySearchList(
         @SerializedName("ingredients")
@@ -42,7 +42,7 @@ data class IngredientSearch(
         @SerializedName("strABV")
         var strABV: Int? = null,
 
-        ) {}
+) {}
 
 // List Ingredients : www.thecocktaildb.com/api/json/v1/1/list.php?i=list
 interface IngredientsService {

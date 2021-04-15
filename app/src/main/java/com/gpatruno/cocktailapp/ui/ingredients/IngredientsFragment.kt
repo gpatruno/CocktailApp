@@ -1,12 +1,12 @@
 package com.gpatruno.cocktailapp.ui.ingredients
 
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.gpatruno.cocktailapp.*
+import com.gpatruno.cocktailapp.data.Ingredient
 import com.gpatruno.cocktailapp.data.IngredientsList
 import com.gpatruno.cocktailapp.data.IngredientsService
 import com.gpatruno.cocktailapp.databinding.FragmentIngredientsBinding
@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class IngredientsFragment : Fragment() {
 
     private lateinit var binding: FragmentIngredientsBinding
-
+    private lateinit var test : ArrayList<Ingredient>
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -48,12 +48,29 @@ class IngredientsFragment : Fragment() {
             }
         })
 
+
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        binding.ingredientSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+               //IngredientsAdapter(test).filter().filter(newText)
+                return false
+            }
+
+        })
+
     }
+
 
 
 }

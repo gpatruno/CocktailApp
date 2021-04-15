@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.room.Room
 import com.gpatruno.cocktailapp.*
 import com.gpatruno.cocktailapp.data.*
 import com.gpatruno.cocktailapp.databinding.FragmentDetailBinding
 import com.google.android.material.tabs.TabLayout
+import com.gpatruno.cocktailapp.data.Ingredient
 import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
@@ -78,14 +78,6 @@ class DetailFragment : Fragment(){
             }
         })
         return binding.root
-    }
-
-    private fun test() {
-
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
     fun mockData(item: Cocktail): List<Ingredient>  {
