@@ -63,7 +63,7 @@ class DashboardFragment : Fragment() {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
                     cocktailNumber = response.body().cocktails.size
-                    binding.cocktailCard.text = cocktailNumber.toString() + " " + getString(R.string.cocktail)
+                    binding.cocktailNumber.text = cocktailNumber.toString()
                 }
             }
 
@@ -87,7 +87,7 @@ class DashboardFragment : Fragment() {
             override fun onResponse(call: Call<IngredientsList>, response: Response<IngredientsList>) {
                 if (response.code() == 200) {
                     ingredientsNumber = response.body().ingredients.size
-                    binding.ingredientsCardDashboard.text =  ingredientsNumber.toString() + " " + getString(R.string.Ingredients)
+                    binding.ingredientsNumber.text =  ingredientsNumber.toString()
                 }
             }
 

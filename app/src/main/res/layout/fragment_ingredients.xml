@@ -10,7 +10,6 @@
         android:id="@+id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         app:layout_constraintTop_toTopOf="parent">
 
 
@@ -27,21 +26,18 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/search"
-        android:layout_marginTop="40dp">
 
         <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/IngredientRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_below="@+id/search"
+            android:layout_marginTop="40dp"
             tools:context=".ui.ingredients.IngredientsFragment">
 
 
         </androidx.recyclerview.widget.RecyclerView>
 
-    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
