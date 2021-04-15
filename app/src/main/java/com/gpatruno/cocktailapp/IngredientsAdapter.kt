@@ -14,7 +14,7 @@ import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
-class IngredientsAdapter(private var items: Array<Ingredient>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>(), Filterable{
+class IngredientsAdapter(private var items: Array<Ingredient>, private var isClicked: Boolean) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>(), Filterable{
 
     var ingredientsFilterList :Array<Ingredient> = arrayOf()
 
@@ -24,11 +24,13 @@ class IngredientsAdapter(private var items: Array<Ingredient>) : RecyclerView.Ad
 
     inner class ViewHolder(private val binding: ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindIngredientsItem(item: Ingredient){
-            binding.cardViewIngredients.setOnClickListener {
-                Log.i(ViewHolder::class.simpleName, item.name.toString())
-                val navController = Navigation.findNavController(binding.root)
-                val bundle = bundleOf("ingredient_name" to item.name)
-                navController.navigate(R.id.navigation_ingredients_detail, bundle)
+            if (isClicked) {
+                binding.cardViewIngredients.setOnClickListener {
+                    Log.i(ViewHolder::class.simpleName, item.name.toString())
+                    val navController = Navigation.findNavController(binding.root)
+                    val bundle = bundleOf("ingredient_name" to item.name)
+                    navController.navigate(R.id.navigation_ingredients_detail, bundle)
+                }
             }
 
             binding.itemTitleIngredient.text = item.name

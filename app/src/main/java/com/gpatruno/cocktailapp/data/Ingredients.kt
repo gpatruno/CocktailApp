@@ -40,7 +40,6 @@ data class IngredientSearch(
 
         @SerializedName("strABV")
         var strABV: Int? = null,
-
 ) {}
 
 // List Ingredients : www.thecocktaildb.com/api/json/v1/1/list.php?i=list
@@ -52,7 +51,6 @@ interface IngredientsService {
 //Search ingredient by name
 // example : www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
 interface IngredientsSearchService {
-
     abstract val ingredientDetail: String
 
     @GET("search.php")

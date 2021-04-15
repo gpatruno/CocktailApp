@@ -16,7 +16,6 @@ import kotlin.collections.ArrayList
 class CocktailAdapter(var items: Array<Cocktail>) : RecyclerView.Adapter<CocktailAdapter.ViewHolder>(), Filterable {
 
     var cocktailsFilterList :Array<Cocktail> = arrayOf()
-
     init {
         cocktailsFilterList = items
     }

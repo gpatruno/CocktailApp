@@ -24,6 +24,4 @@ abstract class AppDatabase : RoomDatabase() {
             return RECIPE_INSTANCE!!
         }
     }
-
-
 }

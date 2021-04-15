@@ -58,7 +58,7 @@ class DetailFragment : Fragment(){
         val service = retrofit.create(CocktailInfoService::class.java)
         val call = service.getCocktailData(cocktailId)
 
-        Log.i(DetailFragment::class.java.simpleName, "AVANT RETROFIT")
+        Log.i(DetailFragment::class.java.simpleName, "AVANT RETROFIT = " + cocktailId)
         call.enqueue(object : Callback<CocktailList> {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
@@ -68,7 +68,7 @@ class DetailFragment : Fragment(){
                         binding.viewPager.adapter?.notifyDataSetChanged()
                         binding.cocktailTitle.text = cocktails[0].name
                         Picasso.get().load(cocktails[0].img).fit().into(binding.cocktailImg)
-                        binding.lstIngredients.adapter = IngredientsAdapter(mockData(cocktails[0]).toTypedArray())
+                        binding.lstIngredients.adapter = IngredientsAdapter(mockData(cocktails[0]).toTypedArray(), false)
                     }
                 }
             }
