@@ -8,7 +8,7 @@ import com.gpatruno.cocktailapp.data.Ingredient
 import com.gpatruno.cocktailapp.databinding.ItemIngredientsBinding
 import com.squareup.picasso.Picasso
 
-class IngredientsAdapter(var items: Array<Ingredient>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
+class IngredientsAdapter(private var items: Array<Ingredient>) : RecyclerView.Adapter<IngredientsAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindIngredientsItem(item: Ingredient){
@@ -18,7 +18,7 @@ class IngredientsAdapter(var items: Array<Ingredient>) : RecyclerView.Adapter<In
 
             binding.itemTitleIngredient.text = item.name
             binding.ItemMeasureIng.text = item.measure
-            Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/"+item.name+"-Medium.png").fit().into(binding.itemImageIngredient)
+            Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/"+item.name+"-Medium.png").fit().into(binding.itemImageIngredients)
         }
     }
 
