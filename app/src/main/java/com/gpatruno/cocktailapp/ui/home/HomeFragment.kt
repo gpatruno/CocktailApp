@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gpatruno.cocktailapp.AppDatabase
 import com.gpatruno.cocktailapp.data.CocktailList
 import com.gpatruno.cocktailapp.CocktailAdapter
-import com.gpatruno.cocktailapp.data.CocktailData
 import com.gpatruno.cocktailapp.data.CocktailListService
 import com.gpatruno.cocktailapp.databinding.FragmentHomeBinding
 import retrofit2.Call
@@ -64,5 +64,29 @@ class HomeFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cocktailSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if(binding.CocktailRecyclerView.adapter != null) {
+                    var cocktailAdapter = binding.CocktailRecyclerView.adapter as CocktailAdapter
+                    cocktailAdapter.filter.filter(query)
+                }
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if(binding.CocktailRecyclerView.adapter != null) {
+                    var cocktailAdapter = binding.CocktailRecyclerView.adapter as CocktailAdapter
+                    cocktailAdapter.filter.filter(newText)
+                }
+                return false
+            }
+
+        })
+
     }
 }

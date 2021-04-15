@@ -19,8 +19,8 @@ class IngredientDetailAdapter(var items: ArrayList<Ingredient>) : RecyclerView.A
     init {
         ingredientsFilterList = items
     }
-    inner class ViewHolder(private val binding : ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
 
+    inner class ViewHolder(private val binding : ItemIngredientsBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bindIngredientsItem(item: Ingredient){
             binding.cardViewIngredients.setOnClickListener {
@@ -32,9 +32,7 @@ class IngredientDetailAdapter(var items: ArrayList<Ingredient>) : RecyclerView.A
             val imgView = binding.itemImageIngredients
             binding.itemTitleIngredient.text = item.name
             Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/"+item.name+"-Medium.png").fit().into(imgView)
-
         }
-
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): IngredientDetailAdapter.ViewHolder {
