@@ -29,7 +29,7 @@ class IngredientDetailAdapter(var items: ArrayList<Ingredient>) : RecyclerView.A
                 navController.navigate(R.id.navigation_ingredients_detail, bundle)
             }
 
-            val imgView = binding.itemImageIngredient
+            val imgView = binding.itemImageIngredients
             binding.itemTitleIngredient.text = item.name
             Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/"+item.name+"-Medium.png").fit().into(imgView)
 
