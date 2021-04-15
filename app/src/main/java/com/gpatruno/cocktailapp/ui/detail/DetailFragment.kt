@@ -50,6 +50,8 @@ class DetailFragment : Fragment(){
             }
         })
 
+        val database = AppDatabase.getRecipeDatabase(this.requireContext())
+
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -69,6 +71,13 @@ class DetailFragment : Fragment(){
                         binding.cocktailTitle.text = cocktails[0].name
                         Picasso.get().load(cocktails[0].img).fit().into(binding.cocktailImg)
                         binding.lstIngredients.adapter = IngredientsAdapter(mockData(cocktails[0]).toTypedArray(), false)
+                        // On met le Cocktail dans la BDD
+                        Thread {
+                           for (cocktail in cocktails) {
+                                val item = CocktailData(null, cocktail.id, cocktail.name, cocktail.instruction, cocktail.glass, cocktail.tags, cocktail.img)
+                               database.cocktailDao().insert(item)
+                           }
+                        }.start()
                     }
                 }
             }

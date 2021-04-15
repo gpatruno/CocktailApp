@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gpatruno.cocktailapp.AppDatabase
 import com.gpatruno.cocktailapp.data.CocktailList
 import com.gpatruno.cocktailapp.CocktailAdapter
 import com.gpatruno.cocktailapp.data.CocktailListService
@@ -17,7 +16,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 
 class HomeFragment : Fragment() {
 
@@ -32,8 +30,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.CocktailRecyclerView.layoutManager = LinearLayoutManager(binding.root.context)
 
-        val database = AppDatabase.getRecipeDatabase(this.requireContext())
-
         val retrofit = Retrofit.Builder()
             .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
             .addConverterFactory(GsonConverterFactory.create())
@@ -46,16 +42,6 @@ class HomeFragment : Fragment() {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
                     binding.CocktailRecyclerView.adapter = CocktailAdapter(response.body().cocktails.toTypedArray())
-                    //val cocktailList = response.body()
-                    //val items = ArrayList<CocktailData>()
-                    //Thread {
-                     //   for (cocktail in cocktailList.cocktails) {
-                            //var item = CocktailData(cocktail.id!!,cocktail.name, cocktail.instruction, cocktail.glass, cocktail.tags, cocktail.img)
-                            //items.add(item)
-                     //   }
-                        //database.clearAllTables()
-                        //database.cocktailDao().insertAll(items)
-                   // }.start()
                 }
             }
             override fun onFailure(call: Call<CocktailList>, t: Throwable) {

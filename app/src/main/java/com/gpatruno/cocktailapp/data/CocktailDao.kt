@@ -16,9 +16,12 @@ interface CocktailDao {
     @Query("SELECT * FROM CocktailData WHERE name LIKE :name")
     fun findByName(name: String): CocktailData
 
+    //@Insert
+    //fun insertAll(vararg cocktail: CocktailData)
+
     @Insert
-    fun insertAll(vararg cocktails: CocktailData)
+    fun insert(vararg cocktail: CocktailData)
 
     @Delete
-    fun delete(cocktail: CocktailData)
+    fun delete(vararg cocktail: CocktailData)
 }
