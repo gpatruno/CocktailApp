@@ -13,9 +13,8 @@ data class IngredientsList(
 data class Ingredient(
     @SerializedName("strIngredient1")
     var name: String? = null,
-    var img: String? = null,
     var measure: String?= null,
-
+    var img: String? = null,
     ) {}
 
 data class IngredientsBySearchList(
