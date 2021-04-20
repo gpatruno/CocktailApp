@@ -1,6 +1,7 @@
 package com.gpatruno.cocktailapp.ui.instruction
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class InstructionFragment(var instruction: String) : Fragment() {
        _binding = FragmentInstructionBinding.inflate(inflater, container, false)
         binding.instruction.text = instruction
 
+        binding.instruction.movementMethod = ScrollingMovementMethod.getInstance()
         return binding.root
     }
 }

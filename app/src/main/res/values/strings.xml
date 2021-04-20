@@ -2,13 +2,13 @@
     <string name="app_name">CocktailApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_cocktail_like">Cocktail Like</string>
     <string name="text_choice_1">IBA</string>
     <string name="liste_des_ingredients">Liste des ingredients</string>
     <string name="glass_type"> Verre   </string>
     <string name="username">Ynov</string>
-    <string name="dashboard_cocktail">Cocktail</string>
-    <string name="cocktail">Cocktail</string>
+    <string name="dashboard_cocktail">Cocktails</string>
+    <string name="cocktails">Cocktail</string>
     <string name= "Ingredients">Ingredients</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -21,8 +21,11 @@
     <string name="website">Website</string>
     <string name="text_no_email_client">No email enter</string>
     <string name="title_send_email">"Send email "</string>
-    <string name="dashboard_email">Send email</string>
+    <string name="dashboard_about">About us</string>
     <string name="dahsboard_website">Website</string>
     <string name="alert_dialog_title_website">Cocktail database website</string>
     <string name="title_header_dashboard">Dashboard</string>
+    <string name="gpat_dev">"Developper : gpatruno "</string>
+    <string name="bun_dev">Developper : bpen</string>
+    <string name="speewi_test">Tester : speewi</string>
 </resources>

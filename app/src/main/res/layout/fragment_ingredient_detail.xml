@@ -16,7 +16,7 @@
 
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="250dp"
             android:id="@+id/item_image_ingredient_detail"
             android:layout_centerHorizontal="true" />
 

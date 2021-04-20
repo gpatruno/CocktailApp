@@ -1,5 +1,6 @@
 package com.gpatruno.cocktailapp.ui.dashboard
 
+import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -32,11 +34,10 @@ class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
     private var cocktailNumber = 0
     private var ingredientsNumber = 0
+    private var dialog: Dialog? = null
 
-    val websites = arrayOf("TheCocktailDB")
-
+    private val websites = arrayOf("TheCocktailDB")
     lateinit var websiteSelect:String
-
     var fragment: Fragment? = null
 
     override fun onCreateView(
@@ -47,8 +48,22 @@ class DashboardFragment : Fragment() {
         binding = FragmentDashboardBinding.inflate(layoutInflater)
         dashboardViewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
 
+        dialog = Dialog(binding.root.context)
+
         return binding.root
     }
+
+    fun Showpopup() {
+        dialog?.setContentView(R.layout.layout_custompop)
+        var textView = dialog?.findViewById<TextView>(R.id.closepop)
+        textView?.setOnClickListener {
+            dialog?.dismiss()
+        }
+
+        dialog?.show()
+    }
+
+
 
     fun getData() {
         val retrofit = Retrofit.Builder()
@@ -145,15 +160,20 @@ class DashboardFragment : Fragment() {
             showAlertDialogWebsite()
         }
 
-        binding.sendEmail.setOnClickListener{
-            sendEmail("bunsarak.pen@ynov.com", "Hello CocktailApp", "Message send to CocktailApp developper")
+        binding.aboutcard.setOnClickListener{
+            Showpopup()
         }
 
+        binding.cardDashboardCocktail.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_dashboard_to_navigation_cocktail_like)
+        }
 
         binding.ingredientsCard.setOnClickListener{
             val navController = findNavController()
             navController.navigate(R.id.action_navigation_dashboard_to_ingredients_fragment)
         }
+
         getData()
         getDataIngredient()
     }

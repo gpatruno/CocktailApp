@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_dashboard">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -23,13 +23,16 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_ingredients_fragment"
             app:destination="@id/ingredients_fragment" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_cocktail_like"
+            app:destination="@id/navigation_cocktail_like" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.gpatruno.cocktailapp.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_cocktail_like"
+        android:name="com.gpatruno.cocktailapp.ui.like.CocktailLikeFragment"
+        android:label="@string/title_cocktail_like"
+        tools:layout="@layout/fragment_cocktail_like" />
 
     <fragment
         android:id="@+id/detail_cocktail"

@@ -19,7 +19,6 @@ class FeaturesFragment(var drinkCategory: String, var glassTitle: String) : Frag
     ): View {
         _binding = FragmentFeaturesBinding.inflate(inflater, container, false)
 
-        binding.drinkCategory.text = drinkCategory
         binding.glassTitle.text = glassTitle
 
         return binding.root

@@ -14,15 +14,4 @@
         android:checked="true"
         android:textSize="20sp"
         android:checkable="true"/>
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/drinkCategory"
-        style="@style/Widget.MaterialComponents.Chip.Choice"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:checked="true"
-        android:textSize="20sp"/>
-
 </LinearLayout>
