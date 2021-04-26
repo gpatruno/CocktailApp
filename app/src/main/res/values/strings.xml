@@ -9,7 +9,7 @@
     <string name="username">Ynov</string>
     <string name="dashboard_cocktail">Cocktails</string>
     <string name="cocktails">Cocktail</string>
-    <string name= "Ingredients">Ingredients</string>
+    <string name="Ingredients">Ingredients</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="dashboard_ingredients">Ingredients</string>
@@ -28,4 +28,6 @@
     <string name="gpat_dev">"Developper : gpatruno "</string>
     <string name="bun_dev">Developper : bpen</string>
     <string name="speewi_test">Tester : speewi</string>
+    <string name="list_cocktail_by_ing">Cocktail List</string>
+    <string name="title_cocktail_list">Cocktail with</string>
 </resources>

@@ -1,11 +1,15 @@
 package com.gpatruno.cocktailapp.ui.ingredients
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.os.bundleOf
+import androidx.navigation.fragment.findNavController
 import com.gpatruno.cocktailapp.*
 import com.gpatruno.cocktailapp.data.IngredientsBySearchList
 import com.gpatruno.cocktailapp.data.IngredientsSearchService
@@ -16,11 +20,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import splitties.toast.toast
 
 
 class IngredientDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentIngredientDetailBinding
+    private var dialog: Dialog? = null
+
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -44,32 +51,34 @@ class IngredientDetailFragment : Fragment() {
                     val descriptionIngredient = detailIngredient[0].ingredientDescription
                     val ingredientAlcohol = detailIngredient[0].strAlcohol
                     val ingredientAlcoholPurcentage = detailIngredient[0].strABV
-                    if (descriptionIngredient !== null) {
+                    if (descriptionIngredient != null) {
                         binding.ingredientDescription.text = descriptionIngredient.toString()
                     } else {
                         binding.ingredientDescription.text = "Aucune description disponible"
                     }
-
-                    if (ingredientAlcohol !== null) {
+                    if (ingredientAlcohol != null) {
                         binding.ingredientAlcool.setImageResource(R.drawable.ic_alcool)
                     } else {
                         binding.ingredientAlcool.setImageResource(R.drawable.ic_pas_d_alcool)
                     }
-
-                    if(ingredientAlcoholPurcentage !== null) {
+                    if(ingredientAlcoholPurcentage != null) {
                         binding.purcentageAlcool.text= "$ingredientAlcoholPurcentage°"
                     } else {
                         binding.purcentageAlcool.text= "0°"
                     }
-
-
                 }
             }
 
             override fun onFailure(call: Call<IngredientsBySearchList>, t: Throwable) {
-                error(t.message.toString())
+                toast(t.message.toString())
             }
         })
+
+        binding.fab.setOnClickListener {
+            val bundle = bundleOf("cocktail_name" to binding.ingredientsName.text)
+            val navController = findNavController()
+            navController.navigate(R.id.action_navigation_ingredients_detail_to_cocktail_list, bundle)
+        }
 
         return binding.root
     }
@@ -81,6 +90,4 @@ class IngredientDetailFragment : Fragment() {
         val imgIngredient = binding.itemImageIngredientDetail
         Picasso.get().load("https://www.thecocktaildb.com/images/ingredients/$ingredientName-Medium.png").fit().into(imgIngredient)
     }
-
-
 }

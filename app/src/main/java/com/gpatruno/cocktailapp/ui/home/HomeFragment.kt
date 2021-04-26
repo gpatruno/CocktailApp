@@ -16,6 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import splitties.toast.toast
 
 class HomeFragment : Fragment() {
 
@@ -41,11 +42,11 @@ class HomeFragment : Fragment() {
         call.enqueue(object : Callback<CocktailList> {
             override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
                 if (response.code() == 200) {
-                    binding.CocktailRecyclerView.adapter = CocktailAdapter(response.body().cocktails.toTypedArray())
+                    binding.CocktailRecyclerView.adapter = CocktailAdapter(response.body().cocktails.toTypedArray(), "HOME")
                 }
             }
             override fun onFailure(call: Call<CocktailList>, t: Throwable) {
-                error(t.message.toString())
+                toast(t.message.toString())
             }
         })
 

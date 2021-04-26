@@ -1,5 +1,6 @@
 package com.gpatruno.cocktailapp
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Filter
@@ -13,7 +14,7 @@ import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 
-class CocktailAdapter(var items: Array<Cocktail>) : RecyclerView.Adapter<CocktailAdapter.ViewHolder>(), Filterable {
+class CocktailAdapter(var items: Array<Cocktail>, var codeFrom: String) : RecyclerView.Adapter<CocktailAdapter.ViewHolder>(), Filterable {
 
     var cocktailsFilterList :Array<Cocktail> = arrayOf()
     init {
@@ -26,7 +27,11 @@ class CocktailAdapter(var items: Array<Cocktail>) : RecyclerView.Adapter<Cocktai
             binding.cardView.setOnClickListener {
                 val navController = findNavController(binding.root)
                 val bundle = bundleOf("cocktail_id" to item.id)
-                navController.navigate(R.id.action_navigation_home_to_detail_cocktail, bundle)
+                when(codeFrom) {
+                    "HOME" -> navController.navigate(R.id.action_navigation_home_to_detail_cocktail, bundle)
+                    "LIKE" -> navController.navigate(R.id.action_navigation_cocktail_like_to_detail_cocktail, bundle)
+                    "ING" -> navController.navigate(R.id.action_cocktail_list_to_detail_cocktail, bundle)
+                }
             }
 
             Picasso.get().load(item.img).fit().into(binding.itemImage)

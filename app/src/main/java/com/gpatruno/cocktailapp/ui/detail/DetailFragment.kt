@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -19,11 +21,13 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import splitties.toast.toast
 
 class DetailFragment : Fragment(){
 
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+    var tmpCocktail: CocktailData? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +37,20 @@ class DetailFragment : Fragment(){
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
         binding.lstIngredients.layoutManager = GridLayoutManager(binding.root.context,2)
 
+        val database = AppDatabase.getRecipeDatabase(this.requireContext())
         val cocktailId = arguments?.getInt("cocktail_id").toString()
+
+        Thread {
+            val item = database.cocktailDao().getById(cocktailId.toInt())
+            if (item != null) {
+                binding.imgCocktailLoveNot.visibility = VISIBLE
+                binding.imgCocktailLove.visibility = INVISIBLE
+            } else {
+                binding.imgCocktailLoveNot.visibility = INVISIBLE
+                binding.imgCocktailLove.visibility = VISIBLE
+            }
+        }.start()
+
 
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Features"))
         binding.tabLayout.addTab(binding.tabLayout.newTab().setText("Instruction"))
@@ -49,8 +66,6 @@ class DetailFragment : Fragment(){
             override fun onTabReselected(tab: TabLayout.Tab) {
             }
         })
-
-        val database = AppDatabase.getRecipeDatabase(this.requireContext())
 
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
@@ -71,21 +86,37 @@ class DetailFragment : Fragment(){
                         binding.cocktailTitle.text = cocktails[0].name
                         Picasso.get().load(cocktails[0].img).fit().into(binding.cocktailImg)
                         binding.lstIngredients.adapter = IngredientsAdapter(mockData(cocktails[0]).toTypedArray(), false)
-                        // On met le Cocktail dans la BDD
-                        Thread {
-                           for (cocktail in cocktails) {
-                                val item = CocktailData(null, cocktail.id, cocktail.name, cocktail.instruction, cocktail.glass, cocktail.tags, cocktail.img)
-                               database.cocktailDao().insert(item)
-                           }
-                        }.start()
+                        tmpCocktail = CocktailData(null,cocktailId.toInt(), cocktails[0].name, cocktails[0].instruction, cocktails[0].glass, cocktails[0].tags, cocktails[0].img);
                     }
                 }
             }
 
             override fun onFailure(call: Call<CocktailList>, t: Throwable) {
-                error(t.message.toString())
+                toast(t.message.toString())
             }
         })
+
+        binding.imgCocktailLove.setOnClickListener {
+            // On met le Cocktail dans la BDD
+            Thread {
+                    val item = CocktailData(null, tmpCocktail?.id, tmpCocktail?.name, tmpCocktail?.instruction ,  tmpCocktail?.glass, tmpCocktail?.tags, tmpCocktail?.img)
+                    Log.i(DetailFragment::class.java.simpleName, item.name.toString())
+                    database.cocktailDao().insert(item)
+
+            }.start()
+            binding.imgCocktailLoveNot.visibility = VISIBLE;
+            binding.imgCocktailLove.visibility = INVISIBLE;
+        }
+
+        binding.imgCocktailLoveNot.setOnClickListener {
+            Thread {
+                val item = CocktailData(null, tmpCocktail?.id, tmpCocktail?.name, tmpCocktail?.instruction ,  tmpCocktail?.glass, tmpCocktail?.tags, tmpCocktail?.img)
+                database.cocktailDao().delete(item.id!!)
+            }.start()
+            binding.imgCocktailLoveNot.visibility = INVISIBLE;
+            binding.imgCocktailLove.visibility = VISIBLE;
+        }
+
         return binding.root
     }
 

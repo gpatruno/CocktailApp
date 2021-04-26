@@ -32,7 +32,6 @@ class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
     private lateinit var binding: FragmentDashboardBinding
-    private var cocktailNumber = 0
     private var ingredientsNumber = 0
     private var dialog: Dialog? = null
 
@@ -47,7 +46,6 @@ class DashboardFragment : Fragment() {
     ): View? {
         binding = FragmentDashboardBinding.inflate(layoutInflater)
         dashboardViewModel = ViewModelProvider(this).get(DashboardViewModel::class.java)
-
         dialog = Dialog(binding.root.context)
 
         return binding.root
@@ -63,38 +61,11 @@ class DashboardFragment : Fragment() {
         dialog?.show()
     }
 
-
-
-    fun getData() {
-        val retrofit = Retrofit.Builder()
-                .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-
-        val service = retrofit.create(CocktailListService::class.java)
-        val call = service.getCocktailData()
-
-        call.enqueue(object : Callback<CocktailList> {
-            override fun onResponse(call: Call<CocktailList>, response: Response<CocktailList>) {
-                if (response.code() == 200) {
-                    cocktailNumber = response.body().cocktails.size
-                    binding.cocktailNumber.text = cocktailNumber.toString()
-                }
-            }
-
-            override fun onFailure(call: Call<CocktailList>, t: Throwable) {
-                error(t.message.toString())
-            }
-        })
-    }
-
     fun getDataIngredient() {
         val retrofit = Retrofit.Builder()
                 .baseUrl("https://www.thecocktaildb.com/api/json/v1/1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
-
-
         val service = retrofit.create(IngredientsService::class.java)
         val call = service.getIngredientsData()
 
@@ -107,7 +78,7 @@ class DashboardFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {
-                error(t.message.toString())
+                toast(t.message.toString())
             }
         })
     }
@@ -130,23 +101,6 @@ class DashboardFragment : Fragment() {
             }
             cancelButton()
         }?.show()
-    }
-
-    // Send email
-    private fun sendEmail(to: String, subject: String, msg: String) {
-        val emailIntent = Intent(Intent.ACTION_SEND)
-
-        emailIntent.data = Uri.parse("mailto:")
-        emailIntent.type = "text/plain"
-        emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf(to))
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject)
-        emailIntent.putExtra(Intent.EXTRA_TEXT, msg)
-
-        try {
-            startActivity(Intent.createChooser(emailIntent, getString(R.string.title_send_email)))
-        } catch (ex: ActivityNotFoundException) {
-            toast(R.string.text_no_email_client)
-        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -174,7 +128,6 @@ class DashboardFragment : Fragment() {
             navController.navigate(R.id.action_navigation_dashboard_to_ingredients_fragment)
         }
 
-        getData()
         getDataIngredient()
     }
 }

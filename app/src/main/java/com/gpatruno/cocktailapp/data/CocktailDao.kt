@@ -13,6 +13,9 @@ interface CocktailDao {
     @Query("SELECT * FROM CocktailData WHERE id IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<CocktailData>
 
+    @Query("SELECT * FROM CocktailData WHERE id = :cocktailId")
+    fun getById(cocktailId: Int): CocktailData
+
     @Query("SELECT * FROM CocktailData WHERE name LIKE :name")
     fun findByName(name: String): CocktailData
 
@@ -22,6 +25,6 @@ interface CocktailDao {
     @Insert
     fun insert(vararg cocktail: CocktailData)
 
-    @Delete
-    fun delete(vararg cocktail: CocktailData)
+    @Query("DELETE FROM CocktailData WHERE id = :cocktailUId")
+    fun delete(cocktailUId: Int)
 }

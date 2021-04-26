@@ -14,6 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import splitties.toast.toast
 
 class IngredientsFragment : Fragment() {
 
@@ -42,7 +43,7 @@ class IngredientsFragment : Fragment() {
                 }
             }
             override fun onFailure(call: Call<IngredientsList>, t: Throwable) {
-                error(t.message.toString())
+                toast(t.message.toString())
             }
         })
 

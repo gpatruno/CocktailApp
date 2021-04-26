@@ -6,6 +6,16 @@
     app:startDestination="@+id/navigation_dashboard">
 
     <fragment
+        android:id="@+id/cocktail_list"
+        android:name="com.gpatruno.cocktailapp.ui.ingredients.CocktailListFragment"
+        android:label="@string/title_cocktail_list"
+        tools:layout="@layout/fragment_cocktail_list" >
+        <action
+            android:id="@+id/action_cocktail_list_to_detail_cocktail"
+            app:destination="@id/detail_cocktail" />
+    </fragment>
+
+    <fragment
         android:id="@+id/navigation_home"
         android:name="com.gpatruno.cocktailapp.ui.home.HomeFragment"
         android:label="@string/title_home"
@@ -32,7 +42,11 @@
         android:id="@+id/navigation_cocktail_like"
         android:name="com.gpatruno.cocktailapp.ui.like.CocktailLikeFragment"
         android:label="@string/title_cocktail_like"
-        tools:layout="@layout/fragment_cocktail_like" />
+        tools:layout="@layout/fragment_cocktail_like" >
+        <action
+            android:id="@+id/action_navigation_cocktail_like_to_detail_cocktail"
+            app:destination="@id/detail_cocktail" />
+    </fragment>
 
     <fragment
         android:id="@+id/detail_cocktail"
@@ -52,6 +66,9 @@
         <argument
             android:name="ingredient_name"
             app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_ingredients_detail_to_cocktail_list"
+            app:destination="@id/cocktail_list" />
     </fragment>
 
     <fragment

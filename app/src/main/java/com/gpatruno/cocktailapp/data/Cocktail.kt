@@ -105,3 +105,8 @@ interface CocktailInfoService {
     @GET("lookup.php")
     fun getCocktailData(@Query("i") i: String): Call<CocktailList>
 }
+
+interface CocktailListByIngredients {
+    @GET("filter.php")
+    fun getCocktailData(@Query("i") i: String): Call<CocktailList>
+}
